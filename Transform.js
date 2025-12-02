@@ -1,0 +1,23 @@
+function main(input) {
+    input = input.toLowerCase();
+    let result = "";
+    
+    for (let i = 0; i < input.length; i++) {
+        if ((i + 1) % 3 === 0 && /[a-z]/.test(input[i])) {
+            result += input[i].toUpperCase();
+        } else {
+            result += input[i];
+        }
+    }
+
+    console.log(result);
+}
+
+let input = "";
+process.stdin.on('data', (chunk) => {
+    input += chunk;
+});
+
+process.stdin.on('end', () => {
+    main(input.trim());
+});
